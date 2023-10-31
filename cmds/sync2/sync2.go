@@ -1,4 +1,4 @@
-package sync
+package sync2
 
 import (
 	"fmt"
@@ -11,13 +11,13 @@ import (
 )
 
 var Run = &cli.Command{
-	Name:  "sync",
-	Usage: "sync gitbook",
+	Name:  "sync2",
+	Usage: "sync2 gitbook, 不包含node_modules",
 	Flags: []cli.Flag{
 		&cli.StringFlag{
 			Name:  "source",
-			Usage: "gitbook数据源(包含node_modules)",
-			Value: "https://github.com/gofulljs/gitbook/releases/download/3.2.3/3.2.3.tar.gz",
+			Usage: "gitbook数据源",
+			Value: "https://github.com/gofulljs/gitbook/archive/refs/tags/3.2.3.tar.gz",
 		},
 		&cli.StringFlag{
 			Name:  "proxy1",
@@ -46,7 +46,13 @@ var Run = &cli.Command{
 			return nil
 		}
 
-		return MustDownloadGitbook(bookHome, cctx.String("proxy1"), cctx.String("proxy2"), cctx.String("source"))
+		err = MustDownloadGitbook(bookHome, cctx.String("proxy1"), cctx.String("proxy2"), cctx.String("source"))
+		if err != nil {
+			return err
+		}
+
+		nodePath := cctx.String("nodePath")
+		return nodeInstall(bookVersionPath, nodePath)
 	},
 }
 

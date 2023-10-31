@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 
 	"github.com/gofulljs/gbook/app"
@@ -8,6 +9,6 @@ import (
 
 func main() {
 	if err := app.InitApp().Run(os.Args); err != nil {
-		panic(err)
+		fmt.Printf("%+v\n", err)
 	}
 }
