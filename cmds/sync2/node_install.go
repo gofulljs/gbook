@@ -10,12 +10,7 @@ import (
 	"golang.org/x/xerrors"
 )
 
-func nodeInstall(bookVersionPath, nodePath string) (err error) {
-	npmCmd := "npm"
-	if nodePath != "" {
-		nodePath = strings.TrimSuffix(nodePath, "/")
-		npmCmd = nodePath + "/" + npmCmd
-	}
+func nodeInstall(bookVersionPath, npmCmd string) (err error) {
 
 	cmd := exec.Command(npmCmd, "install")
 

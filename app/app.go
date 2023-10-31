@@ -1,10 +1,14 @@
 package app
 
 import (
+	"github.com/gofulljs/gbook/cmds/ready"
+	"github.com/gofulljs/gbook/cmds/sync"
 	"github.com/gofulljs/gbook/cmds/sync2"
 	"github.com/gofulljs/gbook/global"
 	"github.com/urfave/cli/v2"
 )
+
+var LogDetail = false
 
 func InitApp() *cli.App {
 	return &cli.App{
@@ -28,11 +32,19 @@ func InitApp() *cli.App {
 				Usage:   "nodejs home, if not specified, use current node",
 				EnvVars: []string{"BOOK_NODE_HOME"},
 			},
+			&cli.BoolFlag{
+				Name:        "logDetail",
+				Usage:       "print log Detail for development",
+				Aliases:     []string{"ld"},
+				Destination: &LogDetail,
+			},
 		},
 		Action: func(cctx *cli.Context) error {
 			return nil
 		},
 		Commands: []*cli.Command{
+			ready.Run,
+			sync.Run,
 			sync2.Run,
 		},
 	}

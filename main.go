@@ -9,6 +9,10 @@ import (
 
 func main() {
 	if err := app.InitApp().Run(os.Args); err != nil {
-		fmt.Printf("%+v\n", err)
+		if app.LogDetail {
+			fmt.Printf("%+v\n", err)
+		} else {
+			fmt.Println(err)
+		}
 	}
 }

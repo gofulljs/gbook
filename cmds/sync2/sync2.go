@@ -5,6 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
+	"github.com/gofulljs/gbook/cmdutil"
 	"github.com/gofulljs/gbook/global"
 	"github.com/urfave/cli/v2"
 	"golang.org/x/xerrors"
@@ -12,7 +13,7 @@ import (
 
 var Run = &cli.Command{
 	Name:  "sync2",
-	Usage: "sync2 gitbook, 不包含node_modules",
+	Usage: "sync2 gitbook, 不包含node_modules, suggest",
 	Flags: []cli.Flag{
 		&cli.StringFlag{
 			Name:  "source",
@@ -51,8 +52,8 @@ var Run = &cli.Command{
 			return err
 		}
 
-		nodePath := cctx.String("nodePath")
-		return nodeInstall(bookVersionPath, nodePath)
+		npmCmd := cmdutil.GetNpmCmd(cctx)
+		return nodeInstall(bookVersionPath, npmCmd)
 	},
 }
 
