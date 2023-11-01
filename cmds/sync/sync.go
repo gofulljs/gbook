@@ -11,7 +11,7 @@ import (
 )
 
 var Run = &cli.Command{
-	Name:  "sync",
+	Name:  global.CmdSync,
 	Usage: "sync gitbook",
 	Flags: []cli.Flag{
 		&cli.StringFlag{

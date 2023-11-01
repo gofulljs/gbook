@@ -39,7 +39,7 @@ func (s *Sync2TestSuite) RunGitbookInstall() {
 
 func (s *Sync2TestSuite) RunNodeInstall() {
 	s.False(checkGitbookIsExist(s.bookVersionPath))
-	err := nodeInstall(s.bookVersionPath, "")
+	err := nodeInstall(s.bookVersionPath)
 	s.NoError(err, "%+v", err)
 	s.True(checkGitbookIsExist(s.bookVersionPath))
 }

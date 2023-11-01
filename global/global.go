@@ -1,9 +1,18 @@
 package global
 
 const (
-	AppName      = "gbook"
-	Version      = "v1.0.0"
-	BOOK_VERSION = "3.2.3"
+	AppName        = "gbook"
+	Version        = "v1.0.0"
+	BOOK_VERSION   = "3.2.3"
+	PLUGIN_PREFIX  = "gitbook-plugin-"
+	BOOK_JSON_FILE = "book.json"
+)
+
+const (
+	CmdInstall = "install"
+	CmdReady   = "ready"
+	CmdSync    = "sync"
+	CmdSync2   = "sync2"
 )
 
 // sourceProxy1

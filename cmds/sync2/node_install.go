@@ -10,9 +10,9 @@ import (
 	"golang.org/x/xerrors"
 )
 
-func nodeInstall(bookVersionPath, npmCmd string) (err error) {
+func nodeInstall(bookVersionPath string) (err error) {
 
-	cmd := exec.Command(npmCmd, "install")
+	cmd := exec.Command("npm", "install")
 
 	// dir, err := os.Getwd()
 	// if err != nil {

@@ -5,20 +5,21 @@ import (
 	"os/exec"
 	"strconv"
 
-	"github.com/gofulljs/gbook/cmdutil"
+	"github.com/gofulljs/gbook/cmds/cmdutil"
+	"github.com/gofulljs/gbook/global"
 	"github.com/urfave/cli/v2"
 	"golang.org/x/xerrors"
 )
 
 var Run = &cli.Command{
-	Name:  "ready",
+	Name:  global.CmdReady,
 	Usage: "check env is ready",
 	Action: func(cctx *cli.Context) error {
 
-		nodeCmd := cmdutil.GetNodeCmd(cctx)
+		cmdutil.SetNodePath(cctx)
 
 		// check node version
-		err := checkNodeVersion(nodeCmd)
+		err := checkNodeVersion()
 		if err != nil {
 			return err
 		}
@@ -32,8 +33,8 @@ var Run = &cli.Command{
 	},
 }
 
-func checkNodeVersion(nodeCmd string) error {
-	command := exec.Command(nodeCmd, "-v")
+func checkNodeVersion() error {
+	command := exec.Command("node", "-v")
 	output, err := command.Output()
 	if err != nil {
 		return xerrors.Errorf("%w", err)
@@ -46,7 +47,7 @@ func checkNodeVersion(nodeCmd string) error {
 	}
 
 	if version > 10 {
-		return xerrors.Errorf("node version %v is greater than 10", version)
+		return xerrors.Errorf("err: node version %v is greater than 10", version)
 	}
 
 	return nil
@@ -59,7 +60,7 @@ func checkGitbookCli() error {
 		return xerrors.Errorf("%w", err)
 	}
 	if bytes.Contains(output, []byte("There is no versions installed")) {
-		return xerrors.New(string(output))
+		return xerrors.New("err:" + string(output))
 	}
 	return nil
 }

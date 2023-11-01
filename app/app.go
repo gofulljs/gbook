@@ -1,6 +1,7 @@
 package app
 
 import (
+	"github.com/gofulljs/gbook/cmds/install"
 	"github.com/gofulljs/gbook/cmds/ready"
 	"github.com/gofulljs/gbook/cmds/sync"
 	"github.com/gofulljs/gbook/cmds/sync2"
@@ -46,6 +47,7 @@ func InitApp() *cli.App {
 			ready.Run,
 			sync.Run,
 			sync2.Run,
+			install.Run,
 		},
 	}
 }
