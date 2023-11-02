@@ -21,7 +21,7 @@ var Run = &cli.Command{
 		},
 		&cli.StringFlag{
 			Name:  "proxy1",
-			Usage: fmt.Sprintf(`自定义加速源(前缀+source), 不传采用以下\n%v`, global.Proxy1s),
+			Usage: fmt.Sprintf("自定义加速源(前缀+source), 不传采用以下\n%v", global.Proxy1s),
 		},
 		&cli.StringFlag{
 			Name:  "proxy2",

@@ -167,10 +167,10 @@ gitbook-plugin-github@1.0.0 '*'`),
 			name:            "anchor-navigation-ex",
 			pluginNoVersion: "gitbook-plugin-anchor-navigation-ex",
 			output: []byte(`gitbook-plugin-anchor-navigation-ex@1.2.5 '>3.x.x'
-gitbook-plugin-anchor-navigation-ex@0.0.7 '*'
-gitbook-plugin-anchor-navigation-ex@0.0.8 '*'`),
+gitbook-plugin-anchor-navigation-ex@1.0.13 '>=3.0.0'
+gitbook-plugin-anchor-navigation-ex@1.0.14 '>=3.0.0'`),
 			bookVersion: global.BOOK_VERSION,
-			want:        "gitbook-plugin-anchor-navigation-ex@1.2.5",
+			want:        "gitbook-plugin-anchor-navigation-ex@1.0.14",
 		},
 	}
 	for _, tt := range tests {

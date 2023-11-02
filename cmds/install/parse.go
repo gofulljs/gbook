@@ -88,12 +88,24 @@ func parseValidPluginName(pluginNoVersion string, output []byte, bookVersion str
 
 		if needBookVersion != "*" {
 
+			// x.x 是错误版本，不能使用
+			// splitIndex := strings.Index(needBookVersion, "-")
+			// if splitIndex != -1 {
+			// 	afterStr := needBookVersion[splitIndex:]
+			// 	needBookVersion = strings.ReplaceAll(needBookVersion[:splitIndex], "x", "0") + afterStr
+			// } else {
+			// 	needBookVersion = strings.ReplaceAll(needBookVersion, "x", "0")
+			// }
+
 			splitIndex := strings.Index(needBookVersion, "-")
 			if splitIndex != -1 {
-				afterStr := needBookVersion[splitIndex:]
-				needBookVersion = strings.ReplaceAll(needBookVersion[:splitIndex], "x", "0") + afterStr
+				if strings.Contains(needBookVersion[:splitIndex], "x") {
+					continue
+				}
 			} else {
-				needBookVersion = strings.ReplaceAll(needBookVersion, "x", "0")
+				if strings.Contains(needBookVersion, "x") {
+					continue
+				}
 			}
 
 			// 判断是否符合规定

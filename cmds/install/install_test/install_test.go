@@ -4,7 +4,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/gofulljs/gbook/app"
+	"github.com/gofulljs/gbook/cmds/app"
 	"github.com/gofulljs/gbook/global"
 	"github.com/stretchr/testify/assert"
 )

@@ -13,6 +13,7 @@ const (
 	CmdReady   = "ready"
 	CmdSync    = "sync"
 	CmdSync2   = "sync2"
+	CmdTest    = "test"
 )
 
 // sourceProxy1

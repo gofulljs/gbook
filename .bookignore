@@ -1,0 +1,10 @@
+/cmds
+/demo
+/global
+/util
+/.bookignore
+/go.*
+/LICENSE
+/makefile
+/*.go
+/.gitignore

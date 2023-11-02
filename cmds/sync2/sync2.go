@@ -5,6 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
+	"github.com/gofulljs/gbook/cmds/cmdutil"
 	"github.com/gofulljs/gbook/global"
 	"github.com/urfave/cli/v2"
 	"golang.org/x/xerrors"
@@ -29,18 +30,11 @@ var Run = &cli.Command{
 		},
 	},
 	Action: func(cctx *cli.Context) error {
-		bookVersion := cctx.String("bookVersion")
 
-		var err error
-		bookHome := cctx.String("bookHome")
-		if bookHome == "" {
-			bookHome, err = getRootPath()
-			if err != nil {
-				return err
-			}
+		_, bookHome, bookVersionPath, err := cmdutil.GetBookVars(cctx)
+		if err != nil {
+			return err
 		}
-
-		bookVersionPath := filepath.Join(bookHome, bookVersion)
 
 		if checkGitbookIsExist(bookVersionPath) {
 			return nil

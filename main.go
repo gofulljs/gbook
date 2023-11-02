@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/gofulljs/gbook/app"
+	"github.com/gofulljs/gbook/cmds/app"
 )
 
 func main() {

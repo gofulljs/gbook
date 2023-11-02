@@ -14,10 +14,6 @@ func nodeInstall(bookVersionPath string) (err error) {
 
 	cmd := exec.Command("npm", "install")
 
-	// dir, err := os.Getwd()
-	// if err != nil {
-	// 	return xerrors.Errorf("%w", err)
-	// }
 	cmd.Dir = bookVersionPath
 
 	stdout, err := cmd.StdoutPipe()
