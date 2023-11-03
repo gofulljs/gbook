@@ -50,3 +50,23 @@ func GetFileExist(filepath string) (bool, error) {
 
 	return exist, nil
 }
+
+/**
+ * @description: 删除文件
+ * @param {string} fileFullPath
+ * @return {*}
+ */
+func DeleteFileIfExist(fileFullPath string) error {
+	isExist, err := GetFileExist(fileFullPath)
+	if err != nil {
+		return xerrors.Errorf("%w", err)
+	}
+	if isExist {
+		err = os.Remove(fileFullPath)
+		if err != nil {
+			return xerrors.Errorf("%w", err)
+		}
+	}
+
+	return nil
+}

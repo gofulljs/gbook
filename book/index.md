@@ -30,4 +30,4 @@ GLOBAL OPTIONS:
 
 - `bookVersion`: 默认使用 gitbook 引擎为 3.2.3
 - `bookHome`: 默认 gitbook 引擎存放位置
-- `nodePath`: `gbook` 使用指定路径的 node 版本，可使用`BOOK_NODE_HOME`配置到环境变量中
+- `nodePath`: `gbook` 使用指定路径的 node 版本，建议将`BOOK_NODE_HOME`配置到环境变量中，这样切换 node 版本不将影响到`gbook`

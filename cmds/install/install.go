@@ -5,6 +5,7 @@ import (
 
 	"github.com/gofulljs/gbook/cmds/cmdutil"
 	"github.com/gofulljs/gbook/global"
+	"github.com/gofulljs/gbook/util"
 	"github.com/urfave/cli/v2"
 )
 
@@ -40,6 +41,7 @@ var Run = &cli.Command{
 			}
 		}
 
-		return nil
+		// 清空lock文件
+		return util.DeleteFileIfExist("package-lock.json")
 	},
 }

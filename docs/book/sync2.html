@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>命令概览 · GitBook</title>
+        <title>sync2 命令 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -59,10 +59,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="ready.html" />
+    <link rel="next" href="install.html" />
     
     
-    <link rel="prev" href="../" />
+    <link rel="prev" href="sync.html" />
     
 
     </head>
@@ -105,7 +105,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.1.1" data-path="./">
+        <li class="chapter " data-level="1.1.1" data-path="./">
             
                 <a href="./">
             
@@ -144,7 +144,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.1.4" data-path="sync2.html">
+        <li class="chapter active" data-level="1.1.4" data-path="sync2.html">
             
                 <a href="sync2.html">
             
@@ -205,7 +205,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >命令概览</a>
+        <a href=".." >sync2 命令</a>
     </h1>
 </div>
 
@@ -220,38 +220,21 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#&#x547D;&#x4EE4;&#x6982;&#x89C8;"><b></b>&#x547D;&#x4EE4;&#x6982;&#x89C8;</a></li></ul></div><a href="#&#x547D;&#x4EE4;&#x6982;&#x89C8;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x547D;&#x4EE4;&#x6982;&#x89C8;"><a name="&#x547D;&#x4EE4;&#x6982;&#x89C8;" class="anchor-navigation-ex-anchor" href="#&#x547D;&#x4EE4;&#x6982;&#x89C8;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x547D;&#x4EE4;&#x6982;&#x89C8;</h1>
-<pre><code class="lang-sh">$ gbook -h
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#sync"><b></b>sync</a></li></ul></div><a href="#sync" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="sync"><a name="sync" class="anchor-navigation-ex-anchor" href="#sync"><i class="fa fa-link" aria-hidden="true"></i></a>sync</h1>
+<pre><code class="lang-sh">gbook sync2 -h
 NAME:
-   gbook - uniswap tick update, other <span class="hljs-built_in">command</span> will forward gitbook *
+   gbook sync2 - sync2 gitbook, &#x4E0D;&#x5305;&#x542B;node_modules, suggest
 
 USAGE:
-   gbook [global options] <span class="hljs-built_in">command</span> [<span class="hljs-built_in">command</span> options] [arguments...]
+   gbook sync2 [<span class="hljs-built_in">command</span> options] [arguments...]
 
-VERSION:
-   v1.0.0
-
-COMMANDS:
-   ready       check env is ready
-   sync        sync gitbook
-   sync2       sync2 gitbook, &#x4E0D;&#x5305;&#x542B;node_modules, suggest
-   install, i  install plugin
-                `install`: install all plugins from gitbook
-                `install [plugins...]`: install plugin you want, eg: `gbook install code ga`
-   <span class="hljs-built_in">help</span>, h     Shows a list of commands or <span class="hljs-built_in">help</span> <span class="hljs-keyword">for</span> one <span class="hljs-built_in">command</span>
-
-GLOBAL OPTIONS:
-   --bookVersion value, --bv value  (default: <span class="hljs-string">&quot;3.2.3&quot;</span>) [%BOOK_VERSION%]
-   --bookHome value, --bh value     gitbook path, default is <span class="hljs-variable">$HOME</span>/.gitbook/versions/
-   --nodePath value                 nodejs home, <span class="hljs-keyword">if</span> not specified, use current node [%BOOK_NODE_HOME%]
-   --help, -h                       show <span class="hljs-built_in">help</span>
-   --version, -v                    <span class="hljs-built_in">print</span> the version
+OPTIONS:
+   --source value  gitbook&#x6570;&#x636E;&#x6E90; (default: <span class="hljs-string">&quot;https://github.com/gofulljs/gitbook/archive/refs/tags/3.2.3.tar.gz&quot;</span>)
+   --proxy1 value  &#x81EA;&#x5B9A;&#x4E49;&#x52A0;&#x901F;&#x6E90;(&#x524D;&#x7F00;+<span class="hljs-built_in">source</span>), &#x4E0D;&#x4F20;&#x91C7;&#x7528;&#x4EE5;&#x4E0B;\n[https://ghps.cc/ https://gh.api.99988866.xyz/ https://github.abskoop.workers.dev/]
+   --proxy2 value  &#x81EA;&#x5B9A;&#x4E49;&#x52A0;&#x901F;&#x6E90;(&#x66FF;&#x6362;https://github.com&#x524D;&#x7F00;)
+   --help, -h      show <span class="hljs-built_in">help</span>
 </code></pre>
-<ul>
-<li><code>bookVersion</code>: &#x9ED8;&#x8BA4;&#x4F7F;&#x7528; gitbook &#x5F15;&#x64CE;&#x4E3A; 3.2.3</li>
-<li><code>bookHome</code>: &#x9ED8;&#x8BA4; gitbook &#x5F15;&#x64CE;&#x5B58;&#x653E;&#x4F4D;&#x7F6E;</li>
-<li><code>nodePath</code>: <code>gbook</code> &#x4F7F;&#x7528;&#x6307;&#x5B9A;&#x8DEF;&#x5F84;&#x7684; node &#x7248;&#x672C;&#xFF0C;&#x5EFA;&#x8BAE;&#x5C06;<code>BOOK_NODE_HOME</code>&#x914D;&#x7F6E;&#x5230;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x4E2D;&#xFF0C;&#x8FD9;&#x6837;&#x5207;&#x6362; node &#x7248;&#x672C;&#x4E0D;&#x5C06;&#x5F71;&#x54CD;&#x5230;<code>gbook</code></li>
-</ul>
+<p>&#x62C9;&#x53D6; gitbook &#x5F15;&#x64CE;&#xFF0C;&#x62C9;&#x53D6;&#x5B8C;&#x6210;&#x540E;&#x4F1A;&#x81EA;&#x52A8;&#x8C03;&#x7528; <code>npm install</code> &#x5B89;&#x88C5;&#x4F9D;&#x8D56;</p>
 
                                 
                                 </section>
@@ -279,12 +262,12 @@ GLOBAL OPTIONS:
 
             
                 
-                <a href="../" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                <a href="sync.html" class="navigation navigation-prev " aria-label="Previous page: sync 命令">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="ready.html" class="navigation navigation-next " aria-label="Next page: ready 命令">
+                <a href="install.html" class="navigation navigation-next " aria-label="Next page: install 命令">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -295,7 +278,7 @@ GLOBAL OPTIONS:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"命令概览","level":"1.1.1","depth":2,"next":{"title":"ready 命令","level":"1.1.2","depth":2,"path":"book/ready.md","ref":"book/ready.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[{"title":"命令概览","level":"1.1.1","depth":2,"path":"book/index.md","ref":"book/index.md","articles":[]},{"title":"ready 命令","level":"1.1.2","depth":2,"path":"book/ready.md","ref":"book/ready.md","articles":[]},{"title":"sync 命令","level":"1.1.3","depth":2,"path":"book/sync.md","ref":"book/sync.md","articles":[]},{"title":"sync2 命令","level":"1.1.4","depth":2,"path":"book/sync2.md","ref":"book/sync2.md","articles":[]},{"title":"install 命令","level":"1.1.5","depth":2,"path":"book/install.md","ref":"book/install.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","-lunr","-search","search-plus","a-import","code","anchor-navigation-ex","ga","3-ba","github"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"disqus":{"shortName":"gopher-1"},"github":{"url":"https://github.com/gofulljs"},"code":{"copyButtons":false},"a-import":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevelIcon":false,"mode":"float","pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"showLevel":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"printLog":false,"multipleH1":false,"multipleH2":false,"associatedWithSummary":true,"multipleH3":false,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"multipleH4":false},"back-to-top-button":{},"3-ba":{"configuration":"auto","token":"4c1823e87df49c9e304623b546c910fd"},"ga":{"configuration":"auto","token":"G-VMFJ3KGT9"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"theme":"default","author":"gofulljs","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"book/index.md","mtime":"2023-11-03T09:07:36.028Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-11-03T09:14:54.770Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"sync2 命令","level":"1.1.4","depth":2,"next":{"title":"install 命令","level":"1.1.5","depth":2,"path":"book/install.md","ref":"book/install.md","articles":[]},"previous":{"title":"sync 命令","level":"1.1.3","depth":2,"path":"book/sync.md","ref":"book/sync.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","-lunr","-search","search-plus","a-import","code","anchor-navigation-ex","ga","3-ba","github"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"disqus":{"shortName":"gopher-1"},"github":{"url":"https://github.com/gofulljs"},"code":{"copyButtons":false},"a-import":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevelIcon":false,"mode":"float","pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"showLevel":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"printLog":false,"multipleH1":false,"multipleH2":false,"associatedWithSummary":true,"multipleH3":false,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"multipleH4":false},"back-to-top-button":{},"3-ba":{"configuration":"auto","token":"4c1823e87df49c9e304623b546c910fd"},"ga":{"configuration":"auto","token":"G-VMFJ3KGT9"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"theme":"default","author":"gofulljs","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"book/sync2.md","mtime":"2023-11-03T01:48:18.243Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-11-03T09:14:54.770Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
