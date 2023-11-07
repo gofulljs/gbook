@@ -2,8 +2,12 @@ package ready
 
 import (
 	"bytes"
+	"fmt"
+	"io"
 	"os/exec"
 	"strconv"
+	"strings"
+	"time"
 
 	"github.com/gofulljs/gbook/cmds/cmdutil"
 	"github.com/gofulljs/gbook/global"
@@ -57,10 +61,47 @@ func checkGitbookCli() error {
 	command := exec.Command("gitbook", "ls")
 	output, err := command.Output()
 	if err != nil {
+		if strings.Contains(err.Error(), "executable file not found in") {
+			return nodeInstallGitbookCli()
+		}
 		return xerrors.Errorf("%w", err)
 	}
-	if bytes.Contains(output, []byte("There is no versions installed")) {
-		return xerrors.New("err:" + string(output))
+	if bytes.Contains(output, []byte("No such file or directory")) {
+		fmt.Println("gitbook-cli is not install, will install")
+		return nodeInstallGitbookCli()
 	}
+	return nil
+}
+
+func nodeInstallGitbookCli() (err error) {
+
+	cmd := exec.Command("npm", "install", "-g", "gitbook-cli")
+
+	stdout, err := cmd.StdoutPipe()
+	if err != nil {
+		return xerrors.Errorf("%w", err)
+	}
+	cmd.Stderr = cmd.Stdout
+
+	if err = cmd.Start(); err != nil {
+		return xerrors.Errorf("%w", err)
+	}
+	// 从管道中实时获取输出并打印到终端
+	for {
+		tmp := make([]byte, 4096)
+		n, err := stdout.Read(tmp)
+		fmt.Print(string(tmp[:n]))
+		if err != nil {
+			if err == io.EOF {
+				break
+			}
+			return xerrors.Errorf("%w", err)
+		}
+		time.Sleep(100 * time.Millisecond)
+	}
+	if err = cmd.Wait(); err != nil {
+		return xerrors.Errorf("%w", err)
+	}
+
 	return nil
 }
