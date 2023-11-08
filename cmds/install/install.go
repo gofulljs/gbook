@@ -7,6 +7,7 @@ import (
 	"github.com/gofulljs/gbook/global"
 	"github.com/gofulljs/gbook/util"
 	"github.com/urfave/cli/v2"
+	"golang.org/x/xerrors"
 )
 
 var Run = &cli.Command{
@@ -15,8 +16,17 @@ var Run = &cli.Command{
 	Usage:   "install plugin\n `install`: install all plugins from gitbook\t\n `install [plugins...]`: install plugin you want, eg: `gbook install code ga`",
 	Action: func(cctx *cli.Context) error {
 
+		//book.json is Exist?
+		isExist, err := util.GetFileExist("book.json")
+		if err != nil {
+			return xerrors.Errorf("%w", err)
+		}
+		if !isExist {
+			return nil
+		}
+
 		//check
-		err := cmdutil.Check(cctx)
+		err = cmdutil.Check(cctx)
 		if err != nil {
 			return err
 		}
@@ -30,7 +40,7 @@ var Run = &cli.Command{
 				return err
 			}
 			if len(mNeed) == 0 {
-				fmt.Println("no plugin to install")
+				fmt.Println("no plugin need to install")
 			}
 		}
 

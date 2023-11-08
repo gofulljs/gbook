@@ -58,6 +58,13 @@ func InitApp() *cli.App {
 			}
 
 			args := cctx.Args().Slice()
+			if args[0] == "build" || args[0] == "serve" {
+				// 会先install
+				err = cctx.App.Run([]string{global.AppName, global.CmdInstall})
+				if err != nil {
+					return err
+				}
+			}
 			fmt.Print("forward:\n", "gitbook ")
 			for _, v := range args {
 				fmt.Print(v + " ")
