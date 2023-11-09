@@ -28,6 +28,6 @@ gitbook 3.2.3 为历史项目，插件下载需要整体拉取，非常缓慢，
 ## 如何使用
 
 - 在 https://github.com/gofulljs/gbook/releases 获取二进制版本直接使用
-- 源码安装 `go install github.com/gofulljs/gbook@v0.0.1`
+- 源码安装 `go install github.com/gofulljs/gbook@v0.1.1`
 
 参考 https://gofulljs.github.io/gbook/
